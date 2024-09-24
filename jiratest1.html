@@ -11,10 +11,13 @@
             dataType: "script"
         });
 
-        // Automatically trigger the collector dialog
+        // Automatically trigger the collector dialog and pass custom field values
         window.ATL_JQ_PAGE_PROPS =  {
             "triggerFunction": function(showCollectorDialog) {
-                showCollectorDialog(); // This will trigger the form automatically
+                showCollectorDialog(); // Trigger the form automatically
+            },
+            "fieldValues": {
+                "customfield_10177": "Your Custom Value"  // Set value for custom field here
             }
         };
     </script>
