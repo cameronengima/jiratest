@@ -1,27 +1,25 @@
-
+<!DOCTYPE html>
+<html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-</head> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        // Load Jira Issue Collector
+        jQuery.ajax({
+            url: "https://enigmalabs.atlassian.net/s/d41d8cd98f00b204e9800998ecf8427e-T/-3ddrgv/b/8/b0105d975e9e59f24a3230a22972a71a/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector-embededjs/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector-embededjs.js?locale=en-US&collectorId=63df39e9",
+            type: "get",
+            cache: true,
+            dataType: "script"
+        });
 
-<script>
-    // Requires jQuery!
-    jQuery.ajax({
-        url: "https://enigmalabs.atlassian.net/s/d41d8cd98f00b204e9800998ecf8427e-T/-3ddrgv/b/8/b0105d975e9e59f24a3230a22972a71a/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector-embededjs/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector-embededjs.js?locale=en-US&collectorId=63df39e9",
-        type: "get",
-        cache: true,
-        dataType: "script"
-    });
-    
-    window.ATL_JQ_PAGE_PROPS =  {
-        "triggerFunction": function(showCollectorDialog) {
-            //Requires that jQuery is available! 
-            jQuery("#myCustomTrigger").click(function(e) {
-                e.preventDefault();
-                showCollectorDialog();
-            });
-        },
-        "fieldValues": {
-            "customfield_10177": "Your Custom Value"  // Set value for custom field here
-        }
-    };
-</script>
+        // Automatically trigger the collector dialog
+        window.ATL_JQ_PAGE_PROPS =  {
+            "triggerFunction": function(showCollectorDialog) {
+                showCollectorDialog(); // This will trigger the form automatically
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Hello World!</h1>
+</body>
+</html>
